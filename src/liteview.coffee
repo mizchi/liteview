@@ -77,3 +77,4 @@ class LiteView extends ValueObject
         else
           throw 'invalid value as DOM element'
 
+window.Liteview = LiteView
