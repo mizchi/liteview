@@ -65,7 +65,7 @@ void function () {
     }
     LiteView.prototype.render = function () {
       if (this.template)
-        return this.$el.html(CoffeeKup.render(this.template));
+        return this.$el.html(this.template);
     };
     LiteView.prototype.attach = function (selector, container) {
       if (null == container)
@@ -112,29 +112,7 @@ void function () {
     };
     return LiteView;
   }(ValueObject);
-  jQuery('body').ready(function () {
-    var A;
-    console.log('xxx');
-    A = function (super$) {
-      extends$(A, super$);
-      A.prototype.template = function () {
-        return div(function () {
-          return div({ 'class': 'hoge' }, function () {
-            return span('hoge');
-          });
-        });
-      };
-      function A() {
-        LiteView.apply(this, arguments);
-        this.domProperty('hoge', 'div.hoge');
-        this.hoge.text('fuga');
-      }
-      return A;
-    }(LiteView);
-    window.a = new A;
-    a.attach('body');
-    return console.log('a', a);
-  });
+  window.Liteview = LiteView;
   function isOwn$(o, p) {
     return {}.hasOwnProperty.call(o, p);
   }
