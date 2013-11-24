@@ -40,7 +40,7 @@ class LiteView extends ValueObject
 
   render: ->
     if @template
-      @$el.html (CoffeeKup.render @template)
+      @$el.html @template
 
   attach: (selector, container = null)->
     if arguments.length is 1 and selector instanceof LiteView
@@ -77,22 +77,3 @@ class LiteView extends ValueObject
         else
           throw 'invalid value as DOM element'
 
-jQuery('body').ready ->
-  console.log 'xxx'
-  class A extends LiteView
-    template: ->
-      div ->
-        div class:'hoge', ->
-          span 'hoge'
-
-    constructor: ->
-      LiteView.apply @, arguments
-      @domProperty 'hoge', 'div.hoge'
-      @hoge.text('fuga')
-
-  window.a = new A
-
-  a.attach 'body'
-  console.log 'a', a
-
-  # a.$el.html 'hogehoge'
