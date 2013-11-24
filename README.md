@@ -4,7 +4,7 @@ LiteView is simple view library inspired by Backbone.View, Chaplin.js and skin.j
 
 written by typed-coffee-script
 
-## Concpet
+## Concept
 
 I noticed what I really need is enclosed this.$el and its controller when I use Backbone.View.
 And Backbone.View has some useful helpers but they makes constructor heavy.
