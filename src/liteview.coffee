@@ -45,7 +45,7 @@ class LiteView extends ValueObject
   attach: (selector, container = null)->
     if arguments.length is 1 and selector instanceof LiteView
       selector.$el.append @$el
-    else if container instanceof Backbone.View
+    else if container instanceof LiteView
       container.$(selector).append @$el
     else
       $(selector).append @$el
