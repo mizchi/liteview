@@ -72,7 +72,7 @@ void function () {
         container = null;
       if (arguments.length === 1 && selector instanceof LiteView) {
         return selector.$el.append(this.$el);
-      } else if (container instanceof Backbone.View) {
+      } else if (container instanceof LiteView) {
         return container.$(selector).append(this.$el);
       } else {
         return $(selector).append(this.$el);
@@ -112,7 +112,7 @@ void function () {
     };
     return LiteView;
   }(ValueObject);
-  window.Liteview = LiteView;
+  window.LiteView = LiteView;
   function isOwn$(o, p) {
     return {}.hasOwnProperty.call(o, p);
   }
