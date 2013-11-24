@@ -19,6 +19,21 @@ void function () {
     ValueObject.prototype.show = function () {
       return this.$el.show();
     };
+    ValueObject.prototype.observe = function (first, second, third) {
+      var callback, key, model;
+      if (typeof third === 'function') {
+        model = first;
+        key = first;
+        callback = third;
+      } else if (null != this.model) {
+        model = this.model;
+        key = first;
+        callback = second;
+      } else {
+        throw 'invalid observe target';
+      }
+      return model.on('change:' + key, callback);
+    };
     ValueObject.prototype.hide = function () {
       return this.$el.hide();
     };

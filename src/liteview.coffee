@@ -9,6 +9,21 @@ class ValueObject
 
   show: -> @$el.show()
 
+  # expect Backbone.Model
+  observe: (first, second, third) ->
+    if (typeof third) is 'function'
+      model = first
+      key = first
+      callback = third
+    else if @model?
+      model = @model
+      key = first
+      callback = second
+    else
+      throw 'invalid observe target'
+
+    model.on "change:#{key}", callback
+
   hide: -> @$el.hide()
 
   remove: -> @$el.remove()
